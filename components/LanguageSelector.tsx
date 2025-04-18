@@ -4,9 +4,13 @@ import { useState } from "react";
 interface LanguageSelectorProps {
   language: string;
   setLanguage: (language: string) => void;
+  roomId: string;
 }
 
-export default function LanguageSelector({ language, setLanguage }: LanguageSelectorProps) {
+export default function LanguageSelector({
+  language,
+  setLanguage,
+}: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -44,4 +48,3 @@ export default function LanguageSelector({ language, setLanguage }: LanguageSele
     </div>
   );
 }
-

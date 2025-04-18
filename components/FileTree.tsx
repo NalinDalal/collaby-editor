@@ -4,6 +4,7 @@ import { useState } from "react";
 interface FileTreeProps {
   files: string[] | undefined;
   onSelectFile: (file: string) => void;
+  roomId: string; // Adding roomId prop
 }
 
 export default function FileTree({ files = [], onSelectFile }: FileTreeProps) {
@@ -41,7 +42,7 @@ export default function FileTree({ files = [], onSelectFile }: FileTreeProps) {
               </div>
             )}
 
-            {openFolders[folderName] && !isFolder && (
+            {folderName && openFolders[folderName] && !isFolder && (
               <div className="file" onClick={() => onSelectFile(file)}>
                 {fileName}
               </div>

@@ -1,7 +1,21 @@
 "use client";
+import { useEffect } from "react";
 import Editor from "@monaco-editor/react";
-
-export default function CodeEditor({ language, code, setCode }) {
+interface CodeEditorProps {
+  roomId: string;
+  language: string;
+  code: string;
+  setCode: (val: string) => void;
+}
+export default function CodeEditor({
+  roomId,
+  language,
+  code,
+  setCode,
+}: CodeEditorProps) {
+  useEffect(() => {
+    console.log("Joined room:", roomId);
+  }, [roomId]);
   return (
     <Editor
       height="500px"
